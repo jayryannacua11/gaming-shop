@@ -17,7 +17,7 @@ export default function Product(){
 	const [sortBy, setSortBy] = useState('');
 
 	const fetchData = () => {
-		fetch('http://localhost:4000/products/all')
+		fetch('https://jaynacs-ecommerce.herokuapp.com/products/all')
 		.then(res => res.json() )
 		.then(data => {
 			const sortedOrders = data.reverse();

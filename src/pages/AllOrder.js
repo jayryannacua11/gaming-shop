@@ -8,7 +8,7 @@ export default function AllOrder(){
 	const [allOrders, setAllOrders] = useState([])
 
 	const fetchData = () => {
-		fetch('http://localhost:4000/orders/allOrders', {
+		fetch('https://jaynacs-ecommerce.herokuapp.com/orders/allOrders', {
 			headers: {
 				'Content-Type': 'application/json',
 				Authorization: `Bearer ${localStorage.getItem('accessToken')}`

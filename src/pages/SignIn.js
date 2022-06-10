@@ -36,7 +36,7 @@ export default function Login(){
 	function authentication(event){
 		event.preventDefault();
 
-		fetch('http://localhost:4000/users/login', {
+		fetch('https://jaynacs-ecommerce.herokuapp.com/users/login', {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json'},
 			body: JSON.stringify({
@@ -56,7 +56,7 @@ export default function Login(){
 				Swal.fire({ title: 'Sheesh', icon: 'success', text: 'Sucessfully Login!'})
 
 				//Get user's details from our token
-				fetch('http://localhost:4000/users/details', {
+				fetch('https://jaynacs-ecommerce.herokuapp.com/users/details', {
 					headers: {
 						Authorization: `Bearer ${data.accessToken}`
 					}

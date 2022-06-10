@@ -14,7 +14,7 @@ export default function EditProduct({productId, fetchData}){
 	const [price, setPrice] = useState();
 
 	const openEdit = (productId) => {
-		fetch(`http://localhost:4000/products/${productId}`)
+		fetch(`https://jaynacs-ecommerce.herokuapp.com/products/${productId}`)
 		.then(res => res.json())
 		.then(data => {
 			setName(data.name)
@@ -33,7 +33,7 @@ export default function EditProduct({productId, fetchData}){
 	const editProduct = (event) => {
 		event.preventDefault();
 
-		fetch(`http://localhost:4000/products/${ productId }/update` ,{
+		fetch(`https://jaynacs-ecommerce.herokuapp.com/products/${ productId }/update` ,{
 			method: 'PUT',
 			headers: {
 				'Content-Type': 'application/json',

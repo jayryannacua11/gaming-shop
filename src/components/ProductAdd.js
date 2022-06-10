@@ -22,7 +22,7 @@ export default function AddProduct({fetchData}) {
 	const addProduct = (event) => {
 		event.preventDefault();
 
-		fetch('http://localhost:4000/products/addProduct', {
+		fetch('https://jaynacs-ecommerce.herokuapp.com/products/addProduct', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',

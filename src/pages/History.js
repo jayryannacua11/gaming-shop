@@ -10,7 +10,7 @@ export default function OrderPage(){
 	const [sortBy, setSortBy] = useState('')
 
 	useEffect(() => {
-		fetch('http://localhost:4000/orders/myOrder', {
+		fetch('https://jaynacs-ecommerce.herokuapp.com/orders/myOrder', {
 			headers: {
 				'Content-Type': 'application/json',
 				Authorization: `Bearer ${localStorage.getItem('accessToken')}`

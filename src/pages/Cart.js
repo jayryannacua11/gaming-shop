@@ -122,7 +122,7 @@ export default function CartView() {
 					
 				}
 				
-				fetch('http://localhost:4000/orders/checkout', {
+				fetch('https://jaynacs-ecommerce.herokuapp.com/orders/checkout', {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json',

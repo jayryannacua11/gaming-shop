@@ -5,7 +5,7 @@ export default function ArchiveProduct( {productId, isActive, fetchData}) {
 
 	//Disabling
 	const archive = (productId) => {
-		fetch(`http://localhost:4000/products/${productId}/archive`, {
+		fetch(`https://jaynacs-ecommerce.herokuapp.com/products/${productId}/archive`, {
 			method: 'PUT',
 			headers: {
 				Authorization: `Bearer ${localStorage.getItem('accessToken')}`
@@ -35,7 +35,7 @@ export default function ArchiveProduct( {productId, isActive, fetchData}) {
 
 	//Enabling
 	const activate = (productId) => {
-		fetch(`http://localhost:4000/products/${productId}/activate`, {
+		fetch(`https://jaynacs-ecommerce.herokuapp.com/products/${productId}/activate`, {
 			method: 'PUT',
 			headers: {
 				Authorization: `Bearer ${localStorage.getItem('accessToken')}`
