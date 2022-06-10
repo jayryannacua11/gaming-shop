@@ -120,8 +120,6 @@ export default function CartView() {
 					newOrder.push(cartItem)
 					
 				}
-
-				console.log(newOrder)
 				
 				fetch('http://localhost:4000/orders/checkout', {
 				method: 'POST',
@@ -154,9 +152,9 @@ export default function CartView() {
 						})
 					}
 				})	
-			
+
+			}
 		}
-	}
 
 	return(
 
