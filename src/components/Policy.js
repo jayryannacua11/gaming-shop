@@ -12,6 +12,7 @@ import {Box, Button, Typography, Modal, Checkbox} from '@mui/material'
     bgcolor: 'background.paper',
     border: '2px solid #000',
     boxShadow: 24,
+    borderRadius: '15px 50px',
     p: 4,
   };
 
@@ -38,7 +39,7 @@ export default function Policy() {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <Typography id="modal-modal-title" variant="h4" component="h2">
+          <Typography className="lobster" variant="h4" component="h2">
             Rules & Policy
           </Typography>
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>

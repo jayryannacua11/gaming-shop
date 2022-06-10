@@ -8,6 +8,7 @@ import DeleteIcon from '@mui/icons-material/DeleteForever';
 import MButton from '@mui/material/Button';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import RemoveCircleIcon from '@mui/icons-material/RemoveCircle';
+import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 
 import Socials from '../components/Socials'
 
@@ -142,7 +143,7 @@ export default function CartView() {
 						  timer: 3000
 						})
 						localStorage.removeItem('cartitems');
-						navigate('/')
+						navigate('/myOrders')
 					} else {
 						Swal.fire({
 							title: 'error!',
@@ -160,7 +161,8 @@ export default function CartView() {
 
 		<>
 			<div className="my-4" >
-				<h1> {`𝗠𝗬 𝗖𝗔𝗥𝗧`}</h1>
+				<h1 className="lobster pe-1" style={{textDecoration: 'underline', display: 'inline'}}> My Cart</h1>
+				<ShoppingCartOutlinedIcon style={{fontSize: '32px', marginBottom: '10px'}} />
 			</div>
 
 <div className="container-fluid mt-2">

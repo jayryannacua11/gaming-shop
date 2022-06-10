@@ -42,7 +42,7 @@ function App() {
         <BrowserRouter>
           <div style={{minHeight: '100vh'}}>
           <AppNavbar />
-            <div className="mx-4">
+            <div className="mx-sm-4">
               <Routes>
                 <Route path="/" element = { <Home /> } />
                 <Route path="/login" element = { <Login /> } />

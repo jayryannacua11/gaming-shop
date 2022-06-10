@@ -5,6 +5,7 @@ import '../App.css';
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
 import SendIcon from '@mui/icons-material/Send';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
+import Brand from '../brand.jpg'
 
 import { Link } from 'react-router-dom';
 import UserContext from '../UserContext';
@@ -16,8 +17,17 @@ export default function NavBar(){
 
 	return(
 		<>			
-			<Navbar collapseOnSelect expand="sm" bg="dark" variant="dark">		
-			  <Navbar.Brand className="px-2">React-Bootstrap</Navbar.Brand>
+			<Navbar collapseOnSelect expand="sm" bg="dark" variant="dark" className="ps-1">
+			  <Navbar.Brand className="px-2" style={{fontWeight: '900'}}>
+			  		<img
+				        src={Brand}
+				        width="30"
+				        height="30"
+				        className="d-inline-block align-top"
+				        alt="Shop logo"
+			      	/>		
+			  		Nacs Gaming Shop
+			  </Navbar.Brand>
 			  <Navbar.Toggle aria-controls="responsive-navbar-nav" />
 			  <Navbar.Collapse id="responsive-navbar-nav">
 			  	{(user.isAdmin !== true) ?

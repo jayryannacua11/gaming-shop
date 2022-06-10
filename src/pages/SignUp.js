@@ -46,6 +46,7 @@ export default function Register(){
 	const [verifyPass, setVerifyPass] = useState('');
 
 	const [warning, setWarning] = useState('');
+	const [taken, setTaken] = useState('');
 	const navigate = useNavigate();
 
 	function registerUser(event){
@@ -67,10 +68,8 @@ export default function Register(){
 			})
 			.then(response => response.json())
 			.then(data => {
-				console.log(data)
-
 				if(data.message === `Email is already taken!`){
-					Swal.fire({ title: 'Error', icon: 'error', text: 'Email is already taken!'})
+					setTaken('Email is already taken!')
 				}else if(data){
 					Swal.fire({ title: 'Success', icon: 'success', text: 'Registered Sucessfully!'})
 					navigate('/login')
@@ -99,6 +98,7 @@ export default function Register(){
 								  onChange={event => setEmail(event.target.value)}
 							/>
 							</Form.Group>
+							<div style={{fontWeight: 'bold'}} className="text-danger px-3">{taken}</div>
 							<Form.Group className="pt-3">
 								<CssTextField
 								  fullWidth

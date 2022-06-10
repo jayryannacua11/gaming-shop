@@ -12,7 +12,7 @@ export default function ProductCard( {productProp} ){
 	return (
 
 		<Card as={ Link } to={`/products/${_id}`} className="mt-3 productCard" 
-			style={{width: '300px', height: '490px', textDecoration: 'none', color: 'black'}}>
+			style={{width: '310px', height: '490px', textDecoration: 'none', color: 'black'}}>
 			<Card.Body>
 				<div className="cardImgContainer">
 					<div className="cardImg"></div>

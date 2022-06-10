@@ -4,6 +4,7 @@ import AdminView from '../components/ViewAdmin';
 import { useContext, useEffect, useState } from 'react';
 import UserContext from '../UserContext';
 import {Select, InputLabel, MenuItem, FormControl} from '@mui/material';
+import MouseOutlinedIcon from '@mui/icons-material/MouseOutlined';
 
 import {Button} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
@@ -73,18 +74,20 @@ export default function Mice(){
 				:
 				<>	
 
-
+		<div className="mx-sm-5">		
 			<div className="container-fluid mt-5">
 				<div className="row align-items-end">
 
-					<div className="col-lg-8 col-md-6">
-						<h1 className="lobster" style={{textDecoration: 'underline'}}>Gaming Mice</h1>
+					<div className="col-md-7">
+						<h1 className="lobster" style={{textDecoration: 'underline', display: 'inline'}}>Gaming Mice</h1>
+						<MouseOutlinedIcon fontSize="large" style={{fontSize: '35px'}}/>
 						<p style={{textAlign: 'justify'}}>
 							Gaming mice that are the best in business, built for precision and durability with optical tracking sensors and hyper durable materials. Available in ergonomic right-handed or ambidextrous designs, and are easily customizable for all FPS, MOBA, and MMO games.
 						</p>
 					</div>
 
-					<div className="col-lg-4 col-md-6">
+					<div className="col-md-5" style={{textAlign: 'right'}}>
+
 						<Button style={{textDecoration: 'underline', fontWeight: '700'}} size="sm" variant="outline-success" className="mx-2" as={Link} to="/cart">View Cart</Button>
 						<FormControl style={{width: '230px'}}>
 							<InputLabel style={{fontSize: '15px', fontWeight: '900'}}>Sort By </InputLabel>
@@ -104,7 +107,8 @@ export default function Mice(){
 				</div>
 			</div>	
 
-					<UserView productsData={allProducts}/>
+				<UserView productsData={allProducts}/>
+		</div>
 
 
 				</>

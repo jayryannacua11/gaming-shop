@@ -6,7 +6,6 @@ import Swal from 'sweetalert2';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import IconButton from '@mui/material/IconButton';
 
-
 export default function AddProduct({fetchData}) {
 
 	const [name, setName] = useState('');
@@ -39,8 +38,14 @@ export default function AddProduct({fetchData}) {
 		.then(res => res.json())
 		.then(data => {
 
-			//If true or success in the backend
-			if(data){
+			if(data.message === 'Product is already on sale'){
+				Swal.fire({
+					title: 'Something went wrong ..',
+					icon: 'error',
+					text: 'Product is already on sale!'
+				})
+				fetchData()				
+			}else {
 				Swal.fire({
 					title: 'Success',
 					icon: 'success',
@@ -49,13 +54,6 @@ export default function AddProduct({fetchData}) {
 
 				closeAdd()
 				fetchData()
-			}else {
-				Swal.fire({
-					title: 'Something went wrong ..',
-					icon: 'error',
-					text: 'Please try again'
-				})
-				fetchData()				
 			}
 
 			//Reset all states input

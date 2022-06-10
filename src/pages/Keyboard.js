@@ -4,6 +4,7 @@ import AdminView from '../components/ViewAdmin';
 import { useContext, useEffect, useState } from 'react';
 import UserContext from '../UserContext';
 import {Select, InputLabel, MenuItem, FormControl} from '@mui/material';
+import KeyboardOutlinedIcon from '@mui/icons-material/KeyboardOutlined';
 
 import {Button} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
@@ -75,17 +76,18 @@ export default function Keyboard(){
 
 				:
 				<>
-
+		<div className="mx-sm-5">
 			<div className="container-fluid mt-5">
 				<div className="row align-items-end">
 
-					<div className="col-lg-8 col-md-6">
-						<h1 className="lobster" style={{textDecoration: 'underline'}}>Gaming Keyboards</h1>
+					<div className="col-md-7">
+						<h1 className="lobster" style={{textDecoration: 'underline', display: 'inline'}}>Gaming Keyboards</h1>
+						<KeyboardOutlinedIcon style={{fontSize: '40px'}}/>
 						<p style={{textAlign: 'justify'}}>
 							Gaming keyboards are available with a variety of switch types: OmniPoint adjustable mechanical switches, red mechanical, brown mechanical, blue mechanical, hybrid mechanical, and membrane, all with extreme durability and performance.
 						</p>
 					</div>
-					<div className="col-lg-4 col-md-6">
+					<div className="col-md-5" style={{textAlign: 'right'}}>
 						<Button style={{textDecoration: 'underline', fontWeight: '700'}} size="sm" variant="outline-success" className="mx-2" as={Link} to="/cart">View Cart</Button>
 						<FormControl style={{width: '230px'}}>
 							<InputLabel style={{fontSize: '15px', fontWeight: '900'}}>Sort By </InputLabel>
@@ -105,7 +107,9 @@ export default function Keyboard(){
 
 				</div>
 			</div>
+
 					<UserView productsData={allProducts}/>
+		</div>
 				</>
 			}
 		</>
