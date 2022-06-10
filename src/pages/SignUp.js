@@ -1,9 +1,13 @@
 import { Form } from 'react-bootstrap';
+import Policy from '../components/Policy'
 import { grey } from '@mui/material/colors';
-import {Button, styled, TextField, FormControlLabel, Checkbox} from '@mui/material'
+import {Button, styled, TextField} from '@mui/material'
 
-import { Link } from 'react-router-dom';
-export default function Register(){
+import { useState, useContext } from 'react';
+import Swal from 'sweetalert2';
+
+import UserContext from '../UserContext'
+import { Link, useNavigate } from 'react-router-dom';
 
 	const CssTextField = styled(TextField)({
 	  '& label.Mui-focused': {
@@ -32,48 +36,107 @@ export default function Register(){
 	    backgroundColor: grey[800],
 	  },
 	}));
+
+export default function Register(){
+
+	//const { user } = useContext(UserContext);
+
+	const [email, setEmail] = useState('');
+	const [password, setPassword] = useState('');
+	const [verifyPass, setVerifyPass] = useState('');
+
+	const [warning, setWarning] = useState('');
+	const navigate = useNavigate();
+
+	function registerUser(event){
+		event.preventDefault();
+
+		if(password !== verifyPass){
+			setWarning('Password does not match!')
+		}else{
+			setWarning('')
+
+			fetch('http://localhost:4000/users/register', {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json'},
+				body: JSON.stringify({
+					email: email,
+					password: password
+				})
+
+			})
+			.then(response => response.json())
+			.then(data => {
+				console.log(data)
+
+				if(data.message === `Email is already taken!`){
+					Swal.fire({ title: 'Error', icon: 'error', text: 'Email is already taken!'})
+				}else if(data){
+					Swal.fire({ title: 'Success', icon: 'success', text: 'Registered Sucessfully!'})
+					navigate('/login')
+				}
+			})
+
+		}
+	}
 	
 	return (
 		<>
 			<div className="container-fluid mt-5">
 				<div className="row justify-content-center">
-					<div className="col-md-6 col-xxl-5">
-						<Form>
+					<div className="col-md-6 col-lg-4 col-xxl-3">
+						<Form onSubmit={event => registerUser(event)}>
 							<h1>Join Today!</h1>
 							<Form.Group className="pt-3">
 								<CssTextField
 								  fullWidth
 								  required
-								  id="outlined-required"
+								  type="email"
+								  
 								  label="Email Address"
 								  placeholder="example@gmail.com"
+								  value={email} 
+								  onChange={event => setEmail(event.target.value)}
 							/>
 							</Form.Group>
 							<Form.Group className="pt-3">
 								<CssTextField
 								  fullWidth
 								  required
-								  id="outlined-required"
+								  type="password"
+								  
 								  label="Password"
 								  helperText="Your password must contain at least 8 characters"
+								  value={password} 
+								  onChange={event => setPassword(event.target.value)}
 							/>
 							</Form.Group>
-							<Form.Group className="pt-1">
-								<Checkbox required/>
-								<span className="policy">I have read and accept the</span>
-									<Button class="btnPolicy px-1" style={{color: 'red'}} as={Link} to="/login" size="small">
-								        Nacs Gaming Policy
-								 	</Button>				
+							<Form.Group className="pt-3">
+								<CssTextField
+								  fullWidth
+								  required
+								  type="password"
+								  
+								  label="Confirm Password"
+								  value={verifyPass} 
+								  onChange={event => setVerifyPass(event.target.value)}
+							/>
+							<div style={{fontWeight: 'bold'}} className="text-danger px-3">{warning}</div>
+								
+
 							</Form.Group>
-							<Button variant="contained" color="warning" size="lg" className="px-5 py-3 mt-3">
+							<Form.Group className="pt-1">
+								<Policy />				
+							</Form.Group>
+							<Button variant="contained" type="submit" color="warning" size="lg" className="px-5 py-3 mt-3">
 								 Register
 							</Button>
 						</Form>
 						
 					</div>
 
-					<div className="col-md-6 col-xxl-5 mt-4 mt-md-0">
-						<h1>Existing member?</h1>
+					<div className="col-md-6 col-lg-4 col-xxl-3 mt-4 mt-md-0">
+						<h1 className='lobster'>Existing member?</h1>
 						<p className="pt-3">Already receiving exclusing benefits as a member? Just Log in directly!</p>
 						<div className="mt-5">
 							<ColorButton variant="dark" size="lg" 

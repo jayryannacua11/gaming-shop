@@ -3,9 +3,6 @@ import { grey } from '@mui/material/colors';
 import { useState, useEffect, useContext } from 'react';
 import Swal from 'sweetalert2';
 import {Button, styled, TextField, Checkbox, Alert} from '@mui/material'
-	// import TextField from '@mui/material/TextField';
-	// import { styled } from '@mui/material/styles';
-	// import Button from '@mui/material/Button';
 
 import { Link, Navigate, useNavigate } from 'react-router-dom';
 import UserContext from '../UserContext';
@@ -74,7 +71,7 @@ export default function Login(){
 							isAdmin: data.isAdmin
 						})
 
-						navigate('/')
+						navigate('/products')
 					}else navigate('/') //If not admin, just redirect to home
 				})
 			}else{
@@ -94,7 +91,7 @@ export default function Login(){
 		<>	
 			<div className="container-fluid mt-5">
 				<div className="row justify-content-center">
-					<div className="col-md-6 col-xxl-5">
+					<div className="col-md-6 col-lg-4 col-xxl-3">
 						<Form onSubmit={event => authentication(event)}>
 							<h1>Member Login</h1>
 							<Form.Group className="pt-3">
@@ -129,8 +126,8 @@ export default function Login(){
 						</Form>
 					</div>
 
-					<div className="col-md-6 col-xxl-5 mt-4 mt-md-0">
-						<h1>Become a member</h1>
+					<div className="col-md-6 col-lg-4 col-xxl-3 mt-4 mt-md-0">
+						<h1 className='lobster'>Become a member</h1>
 						<p className="pt-3">Enjoy members-only pricing, early access to new products. Don't miss your chance and join today for FREE</p>
 						<div className="mt-5">
 							<ColorButton variant="dark" size="lg" 

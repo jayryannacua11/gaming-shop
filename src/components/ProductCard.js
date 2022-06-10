@@ -1,0 +1,32 @@
+import { useState, useEffect } from 'react';
+import { Row, Col, Card, Button } from 'react-bootstrap';
+import PropTypes from 'prop-types';
+//Import Link to pass the _id prop to SpecificCourse.js
+import { Link } from 'react-router-dom';
+
+
+export default function ProductCard( {productProp} ){
+
+	const { _id, name, description, price} = productProp;
+
+	return (
+
+		<Card as={ Link } to={`/products/${_id}`} className="mt-3 productCard" 
+			style={{width: '300px', height: '490px', textDecoration: 'none', color: 'black'}}>
+			<Card.Body>
+				<div className="cardImgContainer">
+					<div className="cardImg"></div>
+				</div>
+				<Card.Title className="pt-2" style={{fontWeight: 800, fontSize: '20px'}}> {name} </Card.Title>
+				<hr/>
+				<Card.Subtitle>Php {price} </Card.Subtitle>
+				<Card.Subtitle className="my-2">Description: </Card.Subtitle>
+				<Card.Subtitle className="ms-3"> <li>{description}</li> </Card.Subtitle>											 
+			</Card.Body>
+			<div className="px-3 pb-3">
+				<Button variant="dark" as={ Link } to={`/products/${_id}`}>Details</Button>
+			</div>
+		</Card>
+
+		)
+}

@@ -1,9 +1,33 @@
-/*CSS reset */
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@900&family=Orbitron:wght@700&family=Poppins:wght@100;400&display=swap');
+
 *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
 }
+
+.home{
+  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url("./bg2.jpg");
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.lobster{
+  font-family: 'Archivo', sans-serif;
+}
+
+.pro{
+  font-family: 'Orbitron', sans-serif;
+}
+
 .secondNav{
   height: 35px;
   display: block;
@@ -26,10 +50,148 @@
 
 .policy{
   font-weight: bold;
+
 }
 
 .btnPolicy{
   font-weight: bold;
   color: red;
+  border: none;
+  text-decoration: underline;
+}
+
+.cardImgContainer{
+  height: 250px;
+}
+.cardImg{
+  height: 250px;
+  background-image: url("https://via.placeholder.com/300");
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  overflow: hidden;
+  padding: 10px;
+  width: 100%;
+}
+
+
+.productCard:hover{
+  border: 3px solid black;
+  box-shadow: 2px 5px #888888;
+}
+
+.orderCard:hover{
+  border: 3px solid orange;
+  box-shadow: 2px 5px #888888;
+}
+
+
+.cartTable{
+  overflow-x: auto;
+}
+
+Table td {
+    width: 30px;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.orderFooter{
+  position: absolute;
+  bottom: 10px;
+}
+
+span {
+  overflow: hidden; 
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: inline-block;
+}
+
+.specImg1{
+  height: 600px;
+  background-image: url("https://press.razer.com/wp-content/uploads/2019/03/Razer-BlackWidow-Kraken-Basilisk-Essential-Press-Size.png");
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative; 
+}
+.specImg2{
+  height: 400px;
+  background-image: url("https://cdn.shopify.com/s/files/1/0355/8296/7943/products/1582567279_IMG_1322217_500x.jpg?v=1640053998");
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+.specImg3{
+  height: 400px;
+  background-image: url("https://www.godisageek.com/wp-content/uploads/Choosing-The-Best-Gaming-Peripherals-2-1024x616.jpg");
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+.specImg4{
+  height: 400px;
+  background-image: url("https://estaticos.megainteresting.com/media/cache/1140x_thumb/uploads/images/gallery/5da5a6c65bafe84e843c986e/diccionario-gaming.jpg");
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.youtube{
+  color:  #eb3223;
+}
+.facebook{
+  color: #3b5998;
+}
+.discord{
+ color: #3b5998;
+}
+.twitter{
+  color: #55acee;
+}
+.instagram{
+  color: black;
+}
+
+a.social{
+  margin: 0 0.3rem;
+  transition:  transform 250ms;
+  display:  inline-block;
+}
+
+a.social:hover{
+  transform: translateY(-2px);
+}
+
+
+body {
+  position: relative;
+}
+
+body::after {
+  content: '';
+  display: block;
+}
+
+.pageFooter {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }
 
