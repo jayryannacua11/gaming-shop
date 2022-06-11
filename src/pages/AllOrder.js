@@ -28,9 +28,18 @@ export default function AllOrder(){
 	}, [])
 
 	return(
-		<div className="m-5">
-			<h1>All Order Page</h1>
-			<AllOrderView ordersData={allOrders} fetchData={fetchData} />
-		</div>
+		<>
+			<div className="text-center my-4">
+				<h1 className='lobster'>All Orders</h1>
+			</div>
+			<div className="container-fluid mt-2">
+				<div className="row justify-content-evenly">
+					<div className="col-12 col-lg-10 col-xl-8 col-xxl-7">
+						<AllOrderView ordersData={allOrders} fetchData={fetchData} />
+					</div>
+				</div>
+			</div>
+		</>
+
 		)
 }

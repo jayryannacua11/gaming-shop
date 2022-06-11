@@ -68,7 +68,7 @@ export default function Product(){
 				:
 			<>
 					
-		<div className="px-5">		
+		<div className="mx-sm-5">		
 			<div className="container-fluid mt-5">
 				<div className="row align-items-end">
 

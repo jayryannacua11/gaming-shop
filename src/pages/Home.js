@@ -5,9 +5,9 @@ import { Link } from 'react-router-dom';
 export default function Home(){
 
 	return (
-		<div className="home" style={{minHeight: '100vh', marginLeft: '-24px', marginRight: '-24px'}}>			
+		<div className="home" style={{minHeight: '100vh'}}>			
 			<div className="container-fluid">
-				<div className="mx-md-5 row justify-content-center justify-content-md-start">
+				<div className="mx-3 mx-md-5 row justify-content-md-start">
 
 					<div className="col-12 col-sm-8 col-md-7">
 						<div className="pro" style={{fontSize: "24px"}}>

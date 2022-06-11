@@ -80,7 +80,7 @@ export default function Register(){
 	}
 	
 	return (
-		<>
+		<div className="mx-sm-4">
 			<div className="container-fluid mt-5">
 				<div className="row justify-content-center">
 					<div className="col-md-6 col-lg-4 col-xxl-3">
@@ -150,6 +150,6 @@ export default function Register(){
 					</div>
 				</div>
 			</div>
-		</>
+		</div>
 		)
 }

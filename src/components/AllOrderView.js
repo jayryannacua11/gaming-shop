@@ -26,13 +26,13 @@ export default function AllOrderView(props){
 	return(
 		<>
 			<div className="text-center">
-				<Table striped bordered hover className="table table-sm">
+				<Table striped bordered hover size="sm" responsive>
 					<thead>
 						<tr>
-							<th style={{width: '30%'}}>Order ID</th>
-							<th style={{width: '30%'}}>User ID</th>
-							<th style={{width: '15%'}}>Total Amount</th>
-							<th style={{width: '15%'}}>Date of Purchase</th>
+							<th>Order ID</th>
+							<th>User ID</th>
+							<th>Total Amount</th>
+							<th>Date of Purchase</th>
 						</tr>
 					</thead>
 					<tbody>

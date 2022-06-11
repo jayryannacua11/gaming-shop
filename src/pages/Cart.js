@@ -159,15 +159,15 @@ export default function CartView() {
 
 	return(
 
-		<>
-			<div className="my-4" >
+<div className="mx-sm-5">
+			<div className="my-4 mx-sm-5" >
 				<h1 className="lobster pe-1" style={{textDecoration: 'underline', display: 'inline'}}> My Cart</h1>
 				<ShoppingCartOutlinedIcon style={{fontSize: '32px', marginBottom: '10px'}} />
 			</div>
 
-<div className="container-fluid mt-2">
-	<div className="row justify-content-center">
-		<div className="cartTable col-12 col-md-8">
+<div className="container mt-2">
+	<div className="row justify-content-evenly">
+		<div className="cartTable col-12 col-sm-12 col-lg-9">
 			<Table size="sm" style={{width:"100%"}} responsive>
 				<thead className="bg-dark text-warning">
 					<tr>
@@ -185,7 +185,7 @@ export default function CartView() {
 			</Table>
 
 		</div>
-		<div className="col-10 col-sm-7 col-md-4">
+		<div className="col-6 col-lg-3">
 
 			<Card style={{width: '16rem', height: 'auto', background: '#e1e4e8'}}>
 
@@ -210,15 +210,15 @@ export default function CartView() {
 	</div>
 </div>
 
-		<div className="container-fluid mt-5">
-			<div className="row justify-content-center justify-content-md-start">
+		<div className="mx-sm-5 container-fluid mt-5">
+			<div className="row justify-content-md-start">
 				<div className="col-12 col-sm-8 col-md-6" style={{fontSize: "18px"}}>
 					<Socials className="mx-auto mx-md-0" />
 				</div>	
 			</div>
 		</div>
 					
-		</>
+</div>
 
 		)
 }

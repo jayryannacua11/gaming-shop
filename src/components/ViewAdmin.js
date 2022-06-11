@@ -38,25 +38,24 @@ export default function AdminView(props){
 	}, [productsData] )
 	
 	return(
-		<div className="mx-5">
+		<div className="mx-sm-5">
 			<div className="text-center my-4">
 				<h1 className='lobster'>Admin Dashboard</h1>
-			</div>
-
-			<div className="text-end">
 				<AddProduct fetchData={fetchData}/>
 			</div>
 
-			<Table striped bordered hover
-			className="text-center table table-sm">
+<div className="container-fluid mt-2">
+	<div className="row justify-content-evenly">
+		<div className="col-12 col-lg-9">
+			<Table striped bordered hover size="sm" responsive className="text-center">
 				<thead className="bg-dark text-white">
 					<tr>
-						<th style={{width: '1%'}}>ID</th>
-						<th style={{width: '15%'}}>NAME</th>
-						<th style={{width: '10%'}}>DESCRIPTION</th>
-						<th style={{width: '5%'}}>PRICE</th>
-						<th style={{width: '10%'}}>AVAILABILITY</th>
-						<th colSpan="2" style={{width: '10%'}}>ACTIONS</th>
+						<th >ID</th>
+						<th >NAME</th>
+						<th >DESCRIPTION</th>
+						<th >PRICE</th>
+						<th >AVAILABILITY</th>
+						<th colSpan="2" >ACTIONS</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -64,6 +63,10 @@ export default function AdminView(props){
 				</tbody>
 				
 			</Table>
+		</div>
+	</div>
+</div>
+			
 		</div>
 		)
 }

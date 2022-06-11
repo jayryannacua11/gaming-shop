@@ -122,7 +122,7 @@ export default function SpecificProduct() {
 	}
 
 	return(
-	<>
+	<div className="mx-lg-4">
 
 <div className="container-fluid mt-5">
 	<div className="row justify-content-center">
@@ -201,7 +201,7 @@ export default function SpecificProduct() {
 	</div>
 </div>
 
-	</>
+	</div>
 		
 
 		)
