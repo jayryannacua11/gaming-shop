@@ -46,7 +46,7 @@ export default function AdminView(props){
 
 			<div className="pb-5 container-fluid mt-2">
 				<div className="row justify-content-evenly">
-					<div className="col-12 col-lg-9">
+					<div className="col-12 col-xxl-10">
 						<Table striped bordered hover size="sm" responsive className="text-center">
 							<thead className="bg-dark text-white">
 								<tr>

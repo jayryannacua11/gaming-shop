@@ -12,9 +12,10 @@ export default function EditProduct({productId, fetchData}){
 	const [description, setDescription] = useState('');
 	const [category, setCategory] = useState('');
 	const [price, setPrice] = useState();
+	const [productImage, setProductImage] = useState('');
 
 	const openEdit = (productId) => {
-		fetch(`https://jaynacs-ecommerce.herokuapp.com/products/${productId}`)
+		fetch(`http://localhost:4000/products/${productId}`)
 		.then(res => res.json())
 		.then(data => {
 			setName(data.name)
@@ -33,18 +34,19 @@ export default function EditProduct({productId, fetchData}){
 	const editProduct = (event) => {
 		event.preventDefault();
 
+		let formData = new FormData()
+		formData.append('name', name)
+		formData.append('productImage', productImage)
+		formData.append('description', description)
+		formData.append('category', category)
+		formData.append('price', price)
+
 		fetch(`https://jaynacs-ecommerce.herokuapp.com/products/${ productId }/update` ,{
 			method: 'PUT',
 			headers: {
-				'Content-Type': 'application/json',
 				Authorization: `Bearer ${localStorage.getItem('accessToken')}`
 			},
-			body: JSON.stringify({
-				name: name,
-				description: description,
-				category: category,
-				price: price
-			})
+			body: formData
 		})
 		.then(res => res.json())
 		.then(data => {
@@ -78,7 +80,7 @@ export default function EditProduct({productId, fetchData}){
 			<Button variant="info" size="sm" onClick={() => openEdit(productId)}>Update</Button>
 
 			<Modal show={showEdit} onHide={closeEdit}>
-				<Form onSubmit={event => editProduct(event)}>
+				<Form onSubmit={event => editProduct(event)} method="POST" encType="multipart/form-data">
 					<Modal.Header closeButton>
 						<Modal.Title>Add Course</Modal.Title>
 					</Modal.Header>
@@ -93,7 +95,15 @@ export default function EditProduct({productId, fetchData}){
 							      onChange={event => setName(event.target.value)}
 							 />
 						</Form.Group>
-
+						<Form.Group className="py-2">
+							<Form.Label>Upload Image</Form.Label>
+							<Form.Control 
+								type="file"
+								name='productImage' 
+								required
+								onChange = {event => setProductImage(event.target.files[0])} 
+							/>
+						</Form.Group>
 						<Form.Group>
 							<Form.Label>Description</Form.Label>
 							<Form.Control 

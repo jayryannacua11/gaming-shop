@@ -7,15 +7,15 @@ import { Link } from 'react-router-dom';
 
 export default function ProductCard( {productProp} ){
 
-	const { _id, name, description, price} = productProp;
-
+	const { _id, name, productImage, description, price} = productProp;
+	console.log(productProp)
 	return (
 
 		<Card as={ Link } to={`/products/${_id}`} className="mt-3 productCard" 
 			style={{width: '310px', height: '490px', textDecoration: 'none', color: 'black'}}>
 			<Card.Body>
 				<div className="cardImgContainer">
-					<div className="cardImg"></div>
+					<img class="prodimg" src={`http://localhost:4000/${productImage}`}/>
 				</div>
 				<Card.Title className="pt-2" style={{fontWeight: 800, fontSize: '20px'}}> {name} </Card.Title>
 				<hr/>

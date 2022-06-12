@@ -12,6 +12,7 @@ export default function AddProduct({fetchData}) {
 	const [description, setDescription] = useState('');
 	const [category, setCategory] = useState('');
 	const [price, setPrice] = useState();
+	const [productImage, setProductImage] = useState('');
 
 	//Modal
 	const [ showAdd, setShowAdd ] = useState(false);
@@ -22,22 +23,26 @@ export default function AddProduct({fetchData}) {
 	const addProduct = (event) => {
 		event.preventDefault();
 
+		let formData = new FormData()
+		formData.append('name', name)
+		formData.append('productImage', productImage)
+		formData.append('description', description)
+		formData.append('category', category)
+		formData.append('price', price)
+		
+		// console.log(formData)
+		// const jsonFormData = JSON.stringify(formData)
+		// console.log(jsonFormData)
 		fetch('https://jaynacs-ecommerce.herokuapp.com/products/addProduct', {
 			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json',
+			headers: {				
 				Authorization: `Bearer ${localStorage.getItem('accessToken')}`
 			},
-			body: JSON.stringify({
-				name: name,
-				description: description,
-				category: category,
-				price: price
-			})
+			body: formData
 		})
 		.then(res => res.json())
 		.then(data => {
-
+			console.log(data)
 			if(data.message === 'Product is already on sale'){
 				Swal.fire({
 					title: 'Something went wrong ..',
@@ -58,6 +63,7 @@ export default function AddProduct({fetchData}) {
 
 			//Reset all states input
 			setName('')
+			setProductImage('')
 			setDescription('')
 			setPrice()
 			setCategory('')
@@ -76,7 +82,7 @@ export default function AddProduct({fetchData}) {
 			</IconButton>			
 
 			<Modal show={showAdd} onHide={closeAdd}>
-				<Form onSubmit={event => addProduct(event)}>
+				<Form onSubmit={event => addProduct(event)} method="POST" encType="multipart/form-data">
 					<Modal.Header closeButton>
 						<Modal.Title>Add Product</Modal.Title>
 					</Modal.Header>
@@ -90,6 +96,15 @@ export default function AddProduct({fetchData}) {
 							value={name}
 							maxLength="30"
 							onChange = {event => setName(event.target.value)}
+							/>
+						</Form.Group>
+						<Form.Group className="py-2">
+							<Form.Label>Upload Image</Form.Label>
+							<Form.Control 
+							type="file"
+							name='productImage' 
+							required
+							onChange = {event => setProductImage(event.target.files[0])} 
 							/>
 						</Form.Group>
 						<Form.Group>
