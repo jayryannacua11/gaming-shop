@@ -54,6 +54,8 @@ export default function Register(){
 
 		if(password !== verifyPass){
 			setWarning('Password does not match!')
+		}else if(password.length < 8){
+			setWarning('Password must contain 8 characters or more')
 		}else{
 			setWarning('')
 

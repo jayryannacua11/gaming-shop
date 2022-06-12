@@ -13,8 +13,10 @@ import SpecificProduct from './pages/SpecificProduct';
 import Cart from './pages/Cart'
 import History from './pages/History'
 import AllOrder from './pages/AllOrder'
+import ChangePass from './pages/ChangePass'
 import Footer from './components/Footer'
 import ErrorPage from './pages/Error'
+
 
 import { UserProvider } from './UserContext';
 
@@ -55,6 +57,7 @@ function App() {
                 <Route path="/cart" element = { <Cart /> } />
                 <Route path="/products/:productId" element = { <SpecificProduct /> } />               
                 <Route path="/myOrders" element = { <History /> } />
+                <Route path="/changePassword" element = { <ChangePass /> } />
                 <Route path="/allOrders" element = { <AllOrder /> } />
                 <Route path="*" element = { <ErrorPage /> } />
               </Routes>
