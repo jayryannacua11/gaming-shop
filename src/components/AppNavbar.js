@@ -124,6 +124,7 @@ export default function NavBar(){
 			          				title="Account"
 			          				menuVariant="dark">		        					        			
 								    <NavDropdown.Item as={Link} to="/allOrders">Order History</NavDropdown.Item>
+								    <NavDropdown.Item as={Link} to="/changePassword">Change Password</NavDropdown.Item>
 								    <NavDropdown.Divider />
 								    <Button
 								    	className="text-center" 

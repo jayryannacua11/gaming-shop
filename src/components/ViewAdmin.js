@@ -44,28 +44,28 @@ export default function AdminView(props){
 				<AddProduct fetchData={fetchData}/>
 			</div>
 
-<div className="container-fluid mt-2">
-	<div className="row justify-content-evenly">
-		<div className="col-12 col-lg-9">
-			<Table striped bordered hover size="sm" responsive className="text-center">
-				<thead className="bg-dark text-white">
-					<tr>
-						<th >ID</th>
-						<th >NAME</th>
-						<th >DESCRIPTION</th>
-						<th >PRICE</th>
-						<th >AVAILABILITY</th>
-						<th colSpan="2" >ACTIONS</th>
-					</tr>
-				</thead>
-				<tbody>
-					{products}
-				</tbody>
-				
-			</Table>
-		</div>
-	</div>
-</div>
+			<div className="pb-5 container-fluid mt-2">
+				<div className="row justify-content-evenly">
+					<div className="col-12 col-lg-9">
+						<Table striped bordered hover size="sm" responsive className="text-center">
+							<thead className="bg-dark text-white">
+								<tr>
+									<th >ID</th>
+									<th >NAME</th>
+									<th >DESCRIPTION</th>
+									<th >PRICE</th>
+									<th >AVAILABILITY</th>
+									<th colSpan="2" >ACTIONS</th>
+								</tr>
+							</thead>
+							<tbody>
+								{products}
+							</tbody>
+							
+						</Table>
+					</div>
+				</div>
+			</div>
 			
 		</div>
 		)
