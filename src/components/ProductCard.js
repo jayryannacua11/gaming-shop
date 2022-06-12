@@ -15,7 +15,7 @@ export default function ProductCard( {productProp} ){
 			style={{width: '310px', height: '490px', textDecoration: 'none', color: 'black'}}>
 			<Card.Body>
 				<div className="cardImgContainer">
-					<img class="prodimg" src={`http://localhost:4000/${productImage}`}/>
+					<img class="prodimg" src={`https://jaynacs-ecommerce.herokuapp.com/${productImage}`}/>
 				</div>
 				<Card.Title className="pt-2" style={{fontWeight: 800, fontSize: '20px'}}> {name} </Card.Title>
 				<hr/>
